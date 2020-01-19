@@ -38,4 +38,9 @@ public class Question {
     public void addAnswer(Answer answer) {
         answers.add(answer);
     }
+
+    @Override
+    public String toString() {
+        return text + ":\n" + answers.toString();
+    }
 }

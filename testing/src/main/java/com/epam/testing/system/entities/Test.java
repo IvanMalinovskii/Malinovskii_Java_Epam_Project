@@ -56,4 +56,9 @@ public class Test {
     public void setUser(User user) {
         this.user = user;
     }
+
+    @Override
+    public String toString() {
+        return title + ":/n" + questions.toString();
+    }
 }
