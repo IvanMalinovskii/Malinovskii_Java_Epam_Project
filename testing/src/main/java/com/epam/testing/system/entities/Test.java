@@ -9,6 +9,8 @@ import java.util.List;
 public class Test {
     private int id;
     private String title;
+    private Subject subject;
+    private User user;
     private List<Question> questions;
 
     {
@@ -37,5 +39,21 @@ public class Test {
 
     public void addQuestion(Question question) {
         questions.add(question);
+    }
+
+    public Subject getSubject() {
+        return subject;
+    }
+
+    public void setSubject(Subject subject) {
+        this.subject = subject;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }
