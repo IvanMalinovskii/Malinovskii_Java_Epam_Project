@@ -32,4 +32,26 @@ begin
 		where tests.testId = testId;
 end //
 
+DELIMITER //
+create procedure insertTest(in testTitle varchar(50), subjectId int, userId int)
+begin
+	insert into tests(testTitle, subjectId, userId)
+		values(testTitle, subjectId, userId);
+	select last_insert_id();
+end //
 
+DELIMITER //
+create procedure insertQuestion(in questionText varchar(100), testId int)
+begin
+	insert into questions(questionText, testId)
+		values(questionText, testId);
+	select last_insert_id();
+end //
+
+DELIMITER //
+create procedure insertAnswer(in answerText varchar(50), answerRight bool, questionId int)
+begin
+	insert into answers(answerText, answerRight, questionId)
+		values(answerText, answerRight, questionId);
+	select last_insert_id();
+end //

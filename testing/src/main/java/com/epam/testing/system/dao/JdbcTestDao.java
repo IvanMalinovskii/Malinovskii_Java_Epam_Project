@@ -99,7 +99,112 @@ public class JdbcTestDao implements TestDao {
 
     @Override
     public int insertTest(Test test) {
-        return 0;
+        Connection connection = null;
+        try {
+            connection = connectionManager.getConnection();
+            connection.setAutoCommit(false);
+            String query = propertyManager.getProperty("sp.insertTest");
+            try (CallableStatement statement = connection.prepareCall(query)) {
+                statement.setString(1, test.getTitle());
+                statement.setInt(2, test.getSubject().getId());
+                statement.setInt(3, test.getUser().getId());
+                try (ResultSet resultSet = statement.executeQuery()) {
+                    if (resultSet.next()) {
+                        int testId = resultSet.getInt(1);
+                        for (var question : test.getQuestions()) {
+                            int questionId = insertQuestion(connection, question, testId);
+                            if (questionId != -1) {
+                                for (var answer : question.getAnswers()) {
+                                    if (!insertAnswer(connection, answer, questionId)) {
+                                        throw new SQLException("answer hasn't been added");
+                                    }
+                                }
+                            }
+                            else { throw new SQLException("question hasn't been added"); }
+                        }
+                        connection.commit();
+                        return testId;
+                    }
+                }
+                catch (SQLException e) {
+                    LOGGER.error("result set error: " + e);
+                    connection.rollback();
+                }
+            }
+            catch (SQLException e) {
+                LOGGER.error("callable statement error: " + e);
+                connection.rollback();
+            }
+        }
+        catch (SQLException e) {
+            LOGGER.error("getting connection error: " + e);
+            try {
+                if (connection != null) {
+                    connection.rollback();
+                }
+            }
+            catch (SQLException ex) {
+                LOGGER.error("connection rollback error: " + e);
+            }
+        }
+        finally {
+            try {
+                if (connection != null) {
+                    connection.setAutoCommit(true);
+                }
+            }
+            catch (SQLException e) {
+                LOGGER.error("set auto commit error: " + e);
+            }
+            connectionManager.releaseConnection(connection);
+        }
+        return -1;
+    }
+
+    private int insertQuestion(Connection connection, Question question, int testId) {
+        String query = propertyManager.getProperty("sp.insertQuestion");
+        try (CallableStatement statement = connection.prepareCall(query)) {
+            statement.setString(1, question.getText());
+            statement.setInt(2, testId);
+            try (ResultSet resultSet = statement.executeQuery()) {
+                resultSet.next();
+                return resultSet.getInt(1);
+            }
+            catch (SQLException e) {
+                LOGGER.error("result set error: " + e);
+                connection.rollback();
+            }
+        }
+        catch (SQLException e) {
+            LOGGER.error("callable statement error: " + e);
+            try {
+                connection.rollback();
+            }
+            catch (SQLException ex) {
+                LOGGER.error("connection rollback error: " + ex);
+            }
+        }
+        return -1;
+    }
+
+    private boolean insertAnswer(Connection connection, Answer answer, int questionId) {
+        String query = propertyManager.getProperty("sp.insertAnswer");
+        try (CallableStatement statement = connection.prepareCall(query)) {
+            statement.setString(1, answer.getText());
+            statement.setBoolean(2, answer.isRight());
+            statement.setInt(3, questionId);
+            return statement.execute();
+        }
+        catch (SQLException e) {
+            LOGGER.error("callable statement error: " + e);
+            try {
+                connection.rollback();
+            }
+            catch (SQLException ex) {
+                LOGGER.error("connection rollback error: " + e);
+            }
+        }
+        return false;
     }
 
     @Override

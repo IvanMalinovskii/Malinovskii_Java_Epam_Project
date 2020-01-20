@@ -5,3 +5,19 @@
 [answ2, answ3]
 2020-01-20 19:49:47 ERROR result set error: java.sql.SQLException: After end of result set
 2020-01-20 19:51:12 ERROR result set error: java.sql.SQLException: Before start of result set
+2020-01-20 21:46:08 ERROR result set error: java.sql.SQLException: Before start of result set
+2020-01-20 21:46:08 ERROR callable statement error: java.sql.SQLException: SQL String cannot be NULL
+2020-01-20 21:46:09 ERROR callable statement error: java.sql.SQLException: SQL String cannot be NULL
+2020-01-20 21:46:09 ERROR callable statement error: java.sql.SQLException: SQL String cannot be NULL
+2020-01-20 21:46:59 ERROR result set error: java.sql.SQLException: Before start of result set
+2020-01-20 21:46:59 ERROR callable statement error: java.sql.SQLException: SQL String cannot be NULL
+2020-01-20 21:46:59 ERROR callable statement error: java.sql.SQLException: SQL String cannot be NULL
+2020-01-20 21:46:59 ERROR callable statement error: java.sql.SQLException: SQL String cannot be NULL
+2020-01-20 21:50:03 ERROR result set error: java.sql.SQLException: Before start of result set
+2020-01-20 21:50:04 ERROR callable statement error: java.sql.SQLIntegrityConstraintViolationException: Cannot add or update a child row: a foreign key constraint fails (`testing`.`answers`, CONSTRAINT `answers_ibfk_1` FOREIGN KEY (`questionId`) REFERENCES `questions` (`questionId`) ON DELETE CASCADE)
+2020-01-20 21:50:04 ERROR callable statement error: java.sql.SQLIntegrityConstraintViolationException: Cannot add or update a child row: a foreign key constraint fails (`testing`.`answers`, CONSTRAINT `answers_ibfk_1` FOREIGN KEY (`questionId`) REFERENCES `questions` (`questionId`) ON DELETE CASCADE)
+2020-01-20 21:50:04 ERROR callable statement error: java.sql.SQLIntegrityConstraintViolationException: Cannot add or update a child row: a foreign key constraint fails (`testing`.`answers`, CONSTRAINT `answers_ibfk_1` FOREIGN KEY (`questionId`) REFERENCES `questions` (`questionId`) ON DELETE CASCADE)
+2020-01-20 21:52:33 ERROR result set error: java.sql.SQLException: Before start of result set
+2020-01-20 21:52:33 ERROR callable statement error: java.sql.SQLIntegrityConstraintViolationException: Cannot add or update a child row: a foreign key constraint fails (`testing`.`answers`, CONSTRAINT `answers_ibfk_1` FOREIGN KEY (`questionId`) REFERENCES `questions` (`questionId`) ON DELETE CASCADE)
+2020-01-20 21:52:33 ERROR callable statement error: java.sql.SQLIntegrityConstraintViolationException: Cannot add or update a child row: a foreign key constraint fails (`testing`.`answers`, CONSTRAINT `answers_ibfk_1` FOREIGN KEY (`questionId`) REFERENCES `questions` (`questionId`) ON DELETE CASCADE)
+2020-01-20 21:52:34 ERROR callable statement error: java.sql.SQLIntegrityConstraintViolationException: Cannot add or update a child row: a foreign key constraint fails (`testing`.`answers`, CONSTRAINT `answers_ibfk_1` FOREIGN KEY (`questionId`) REFERENCES `questions` (`questionId`) ON DELETE CASCADE)

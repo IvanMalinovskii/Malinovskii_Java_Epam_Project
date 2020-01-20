@@ -1,9 +1,14 @@
 package system.dao.jdbc;
 
 import com.epam.testing.system.dao.JdbcTestDao;
+import com.epam.testing.system.entities.Answer;
+import com.epam.testing.system.entities.Question;
+import com.epam.testing.system.entities.Subject;
+import com.epam.testing.system.entities.User;
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
 import java.util.List;
 
 class JdbcTestDaoTest {
@@ -30,5 +35,33 @@ class JdbcTestDaoTest {
         System.out.println(test);
 
         Assert.assertEquals(2, test.getQuestions().size());
+    }
+
+    @Test
+    void insertTestTest() {
+        com.epam.testing.system.entities.Test test = new com.epam.testing.system.entities.Test();
+        test.setTitle("third");
+        Subject subject = new Subject();
+        subject.setId(1);
+        test.setSubject(subject);
+        User user = new User();
+        user.setId(2);
+        test.setUser(user);
+        List<Question> questions = new ArrayList<>();
+        Question question = new Question();
+        question.setText("quest1");
+        List<Answer> answers = new ArrayList<>();
+        for (int i = 0; i < 3; i++) {
+            Answer answer = new Answer();
+            answer.setText("answ" + i);
+            answer.setRight(i == 0);
+            answers.add(answer);
+        }
+        question.setAnswers(answers);
+        questions.add(question);
+        test.setQuestions(questions);
+        int id = testDao.insertTest(test);
+
+        Assert.assertEquals(10, id);
     }
 }
