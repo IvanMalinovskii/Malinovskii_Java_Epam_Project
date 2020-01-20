@@ -28,7 +28,7 @@ public class ConnectionManager {
             LOGGER.error("jdbc driver hasn't been loaded");
         }
         propertyManager = PropertyManager.getManager();
-        int poolCapacity = Integer.parseInt(propertyManager.getProperty("poolCapacity"));
+        int poolCapacity = Integer.parseInt(propertyManager.getProperty("db.poolCapacity"));
         Properties configuration = getConfiguration();
         connections = new ArrayList<>(poolCapacity);
         try {

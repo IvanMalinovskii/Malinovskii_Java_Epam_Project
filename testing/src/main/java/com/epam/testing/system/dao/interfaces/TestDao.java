@@ -10,7 +10,7 @@ import java.util.List;
 public interface TestDao {
     List<Test> getTests();
     List<Test> getTestsByTutor(String tutorLogin);
-    List<Test> getTestById(int testId);
+    Test getTestById(int testId);
     int insertTest(Test test);
     boolean updateTest(Test test);
     boolean deleteTest(int testId);

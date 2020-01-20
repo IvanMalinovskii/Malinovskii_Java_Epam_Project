@@ -1,0 +1,7 @@
+
+2020-01-20 19:39:12 INFO first:
+[answ1, answ2, answ3]
+2020-01-20 19:39:12 INFO second:
+[answ2, answ3]
+2020-01-20 19:49:47 ERROR result set error: java.sql.SQLException: After end of result set
+2020-01-20 19:51:12 ERROR result set error: java.sql.SQLException: Before start of result set

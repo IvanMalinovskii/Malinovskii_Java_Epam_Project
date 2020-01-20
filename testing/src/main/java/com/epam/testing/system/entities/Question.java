@@ -39,6 +39,14 @@ public class Question {
         answers.add(answer);
     }
 
+    public List<Answer> getAnswers() {
+        return answers;
+    }
+
+    public void setAnswers(List<Answer> answers) {
+        this.answers = answers;
+    }
+
     @Override
     public String toString() {
         return text + ":\n" + answers.toString();

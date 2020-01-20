@@ -57,6 +57,14 @@ public class Test {
         this.user = user;
     }
 
+    public List<Question> getQuestions() {
+        return questions;
+    }
+
+    public void setQuestions(List<Question> questions) {
+        this.questions = questions;
+    }
+
     @Override
     public String toString() {
         return title + ":/n" + questions.toString();

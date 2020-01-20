@@ -1,9 +1,7 @@
 package com.epam.testing.system.dao;
 
 import com.epam.testing.system.dao.interfaces.TestDao;
-import com.epam.testing.system.entities.Subject;
-import com.epam.testing.system.entities.Test;
-import com.epam.testing.system.entities.User;
+import com.epam.testing.system.entities.*;
 import com.epam.testing.system.managers.ConnectionManager;
 import com.epam.testing.system.managers.PropertyManager;
 import org.apache.logging.log4j.LogManager;
@@ -33,8 +31,7 @@ public class JdbcTestDao implements TestDao {
             connection = connectionManager.getConnection();
             String query = propertyManager.getProperty("sp.getTests");
             try (CallableStatement statement = connection.prepareCall(query)) {
-                List<Test> tests = getTestsFromStatement(statement);
-                if (tests != null) return tests;
+                return getTestsFromStatement(statement);
             }
             catch (SQLException e) {
                 LOGGER.error("callable statement error: " + e);
@@ -45,20 +42,6 @@ public class JdbcTestDao implements TestDao {
         }
         finally {
             connectionManager.releaseConnection(connection);
-        }
-        return null;
-    }
-
-    private List<Test> getTestsFromStatement(CallableStatement statement) {
-        try (ResultSet resultSet = statement.executeQuery()) {
-            ArrayList<Test> tests = new ArrayList<>();
-            while (resultSet.next()) {
-                tests.add(getHeaderTest(resultSet));
-            }
-            return tests;
-        }
-        catch (SQLException e) {
-            LOGGER.error("result set error: " + e);
         }
         return null;
     }
@@ -71,8 +54,7 @@ public class JdbcTestDao implements TestDao {
             String query = propertyManager.getProperty("sp.getTestsByTutor");
             try (CallableStatement statement = connection.prepareCall(query)) {
                 statement.setString(1, tutorLogin);
-                List<Test> tests = getTestsFromStatement(statement);
-                if (tests != null) return tests;
+                return getTestsFromStatement(statement);
             }
             catch (SQLException e) {
                 LOGGER.error("callable statement error: " + e);
@@ -88,7 +70,30 @@ public class JdbcTestDao implements TestDao {
     }
 
     @Override
-    public List<Test> getTestById(int testId) {
+    public Test getTestById(int testId) {
+        Connection connection = null;
+        try {
+            connection = connectionManager.getConnection();
+            String query = propertyManager.getProperty("sp.getTestById");
+            try (CallableStatement statement = connection.prepareCall(query)) {
+                statement.setInt(1, testId);
+                try (ResultSet resultSet = statement.executeQuery()) {
+                    return getAllTest(resultSet);
+                }
+                catch (SQLException e) {
+                    LOGGER.error("result set error: " + e);
+                }
+            }
+            catch (SQLException e) {
+                LOGGER.error("callable statement error: " + e);
+            }
+        }
+        catch (SQLException e) {
+            LOGGER.error("getting connection error: " + e);
+        }
+        finally {
+            connectionManager.releaseConnection(connection);
+        }
         return null;
     }
 
@@ -116,8 +121,57 @@ public class JdbcTestDao implements TestDao {
         test.setSubject(subject);
         User user = new User();
         user.setName(set.getString(4));
-        user.setSecondName(set.getString(5));
+        user.setSurname(set.getString(5));
         test.setUser(user);
         return test;
+    }
+
+    private List<Test> getTestsFromStatement(CallableStatement statement) {
+        try (ResultSet resultSet = statement.executeQuery()) {
+            ArrayList<Test> tests = new ArrayList<>();
+            while (resultSet.next()) {
+                tests.add(getHeaderTest(resultSet));
+            }
+            return tests;
+        }
+        catch (SQLException e) {
+            LOGGER.error("result set error: " + e);
+        }
+        return null;
+    }
+
+    private Test getAllTest(ResultSet set) throws SQLException {
+        if (!set.next()) {
+            return null;
+        }
+        Test test = getHeaderTest(set);
+        test.setQuestions(getQuestions(set));
+        return test;
+    }
+
+    private List<Question> getQuestions(ResultSet set) throws SQLException {
+        set.beforeFirst();
+        List<Question> questions = new ArrayList<>();
+        while (set.next()) {
+            Question question = new Question();
+            question.setId(set.getInt(6));
+            question.setText(set.getString(7));
+            question.setAnswers(getAnswers(set, question.getId()));
+            questions.add(question);
+            set.previous();
+        }
+        return questions;
+    }
+
+    private List<Answer> getAnswers(ResultSet set, int questionId) throws SQLException {
+        List<Answer> answers = new ArrayList<>();
+        do {
+            Answer answer = new Answer();
+            answer.setId(set.getInt(8));
+            answer.setText(set.getString(9));
+            answer.setRight(set.getBoolean(10));
+            answers.add(answer);
+        } while (set.next() && set.getInt(6) == questionId);
+        return answers;
     }
 }
