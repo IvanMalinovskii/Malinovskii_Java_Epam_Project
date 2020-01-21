@@ -11,11 +11,6 @@ public class Test {
     private String title;
     private Subject subject;
     private User user;
-    private List<Question> questions;
-
-    {
-        questions = new ArrayList<>();
-    }
 
     public int getId() {
         return id;
@@ -31,14 +26,6 @@ public class Test {
 
     public void setTitle(String title) {
         this.title = title;
-    }
-
-    public Question getQuestion(int index) {
-        return questions.get(index);
-    }
-
-    public void addQuestion(Question question) {
-        questions.add(question);
     }
 
     public Subject getSubject() {
@@ -57,16 +44,8 @@ public class Test {
         this.user = user;
     }
 
-    public List<Question> getQuestions() {
-        return questions;
-    }
-
-    public void setQuestions(List<Question> questions) {
-        this.questions = questions;
-    }
-
     @Override
     public String toString() {
-        return title + ":/n" + questions.toString();
+        return title + " " + user.getSurname() + " " + subject.getSubject();
     }
 }

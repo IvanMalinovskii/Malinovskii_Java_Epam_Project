@@ -78,7 +78,9 @@ public class JdbcTestDao implements TestDao {
             try (CallableStatement statement = connection.prepareCall(query)) {
                 statement.setInt(1, testId);
                 try (ResultSet resultSet = statement.executeQuery()) {
-                    return getAllTest(resultSet);
+                    if (resultSet.next()) {
+                        return getTest(resultSet);
+                    }
                 }
                 catch (SQLException e) {
                     LOGGER.error("result set error: " + e);
@@ -102,7 +104,6 @@ public class JdbcTestDao implements TestDao {
         Connection connection = null;
         try {
             connection = connectionManager.getConnection();
-            connection.setAutoCommit(false);
             String query = propertyManager.getProperty("sp.insertTest");
             try (CallableStatement statement = connection.prepareCall(query)) {
                 statement.setString(1, test.getTitle());
@@ -110,52 +111,18 @@ public class JdbcTestDao implements TestDao {
                 statement.setInt(3, test.getUser().getId());
                 try (ResultSet resultSet = statement.executeQuery()) {
                     if (resultSet.next()) {
-                        int testId = resultSet.getInt(1);
-                        for (var question : test.getQuestions()) {
-                            int questionId = insertQuestion(connection, question, testId);
-                            if (questionId != -1) {
-                                for (var answer : question.getAnswers()) {
-                                    if (!insertAnswer(connection, answer, questionId)) {
-                                        throw new SQLException("answer hasn't been added");
-                                    }
-                                }
-                            }
-                            else { throw new SQLException("question hasn't been added"); }
-                        }
-                        connection.commit();
-                        return testId;
+                        return resultSet.getInt(1);
                     }
-                }
-                catch (SQLException e) {
-                    LOGGER.error("result set error: " + e);
-                    connection.rollback();
                 }
             }
             catch (SQLException e) {
                 LOGGER.error("callable statement error: " + e);
-                connection.rollback();
             }
         }
         catch (SQLException e) {
             LOGGER.error("getting connection error: " + e);
-            try {
-                if (connection != null) {
-                    connection.rollback();
-                }
-            }
-            catch (SQLException ex) {
-                LOGGER.error("connection rollback error: " + e);
-            }
         }
         finally {
-            try {
-                if (connection != null) {
-                    connection.setAutoCommit(true);
-                }
-            }
-            catch (SQLException e) {
-                LOGGER.error("set auto commit error: " + e);
-            }
             connectionManager.releaseConnection(connection);
         }
         return -1;
@@ -256,7 +223,7 @@ public class JdbcTestDao implements TestDao {
         return false;
     }
 
-    private Test getHeaderTest(ResultSet set) throws SQLException {
+    private Test getTest(ResultSet set) throws SQLException {
         Test test = new Test();
         test.setId(set.getInt(1));
         test.setTitle(set.getString(2));
@@ -274,7 +241,7 @@ public class JdbcTestDao implements TestDao {
         try (ResultSet resultSet = statement.executeQuery()) {
             ArrayList<Test> tests = new ArrayList<>();
             while (resultSet.next()) {
-                tests.add(getHeaderTest(resultSet));
+                tests.add(getTest(resultSet));
             }
             return tests;
         }
@@ -282,40 +249,5 @@ public class JdbcTestDao implements TestDao {
             LOGGER.error("result set error: " + e);
         }
         return null;
-    }
-
-    private Test getAllTest(ResultSet set) throws SQLException {
-        if (!set.next()) {
-            return null;
-        }
-        Test test = getHeaderTest(set);
-        test.setQuestions(getQuestions(set));
-        return test;
-    }
-
-    private List<Question> getQuestions(ResultSet set) throws SQLException {
-        set.beforeFirst();
-        List<Question> questions = new ArrayList<>();
-        while (set.next()) {
-            Question question = new Question();
-            question.setId(set.getInt(6));
-            question.setText(set.getString(7));
-            question.setAnswers(getAnswers(set, question.getId()));
-            questions.add(question);
-            set.previous();
-        }
-        return questions;
-    }
-
-    private List<Answer> getAnswers(ResultSet set, int questionId) throws SQLException {
-        List<Answer> answers = new ArrayList<>();
-        do {
-            Answer answer = new Answer();
-            answer.setId(set.getInt(8));
-            answer.setText(set.getString(9));
-            answer.setRight(set.getBoolean(10));
-            answers.add(answer);
-        } while (set.next() && set.getInt(6) == questionId);
-        return answers;
     }
 }

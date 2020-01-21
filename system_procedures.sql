@@ -24,11 +24,9 @@ end //
 DELIMITER //
 create procedure getTestById(in testId int)
 begin
-	select tests.testId, testTitle, subjectName, userName, userSurname, questions.questionId, questionText, answers.answerId, answerText, answerRight from tests
+	select tests.testId, testTitle, subjectName, userName, userSurname from tests
 		inner join subjects on tests.subjectId = subjects.subjectId
 		inner join users on tests.userId = users.userId
-		inner join questions on tests.testId = questions.testId
-		inner join answers on questions.questionId = answers.questionId
 		where tests.testId = testId;
 end //
 
@@ -109,5 +107,15 @@ begin
 	delete from users where users.userId = userId;
 end //
 
+DELIMITER //
+create procedure getQuestions(in testId int)
+begin
+	select * from questions where questions.testId = testId;
+end //
 
+DELIMITER //
+create procedure getAnswers(in questionId int)
+begin
+	select * from answers where answers.questionId = questionId;
+end //
 
