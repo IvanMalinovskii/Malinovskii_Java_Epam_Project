@@ -71,3 +71,37 @@ create procedure deleteTest(in testId int)
 begin
 	delete from tests where tests.testId = testId;
 end //
+
+DELIMITER //
+create procedure getUser(in userLogin varchar(20), userPassword varchar(20))
+begin
+	select userId, userName, userSecondName, userSurname, roleName from users
+		inner join roles on users.roleId = roles.roleId
+        where users.userLogin like userLogin and users.userPassword like userPassword; 
+end //
+
+DELIMITER //
+create procedure checkLogin(in userLogin varchar(20))
+begin
+	select count(*) from users where users.userLogin like userLogin;
+end //
+
+DELIMITER //
+create procedure checkMail(in userMail varchar(30))
+begin
+	select count(*) from users where users.userMail like userMail;
+end //
+
+DELIMITER //
+create procedure insertUser(in userLogin VARCHAR(20), userPassword VARCHAR(20),
+							   userMail VARCHAR(30), userName VARCHAR(10),
+                               userSecondName VARCHAR(10), userSurname VARCHAR(20),
+							   roleId INT)
+begin
+	insert into users(userLogin, userPassword, userMail, userName, userSecondName, userSurname, roleId)
+				values(userLogin, userPassword, userMail, userName, userSecondName, userSurname, roleId);
+	select last_insert_id();
+end //
+
+
+

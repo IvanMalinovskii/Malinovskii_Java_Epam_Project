@@ -5,6 +5,6 @@ import com.epam.testing.system.entities.User;
 public interface UserDao {
     User getUser(String login, String password);
     boolean checkLogin(String login);
-    boolean checkEmail(String email);
+    boolean checkMail(String mail);
     int insertUser(User user);
 }
