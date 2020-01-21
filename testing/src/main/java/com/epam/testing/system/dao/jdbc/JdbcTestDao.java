@@ -1,4 +1,4 @@
-package com.epam.testing.system.dao;
+package com.epam.testing.system.dao.jdbc;
 
 import com.epam.testing.system.dao.interfaces.TestDao;
 import com.epam.testing.system.entities.*;
@@ -209,11 +209,50 @@ public class JdbcTestDao implements TestDao {
 
     @Override
     public boolean updateTest(Test test) {
+        Connection connection = null;
+        try {
+            connection = connectionManager.getConnection();
+            String query = propertyManager.getProperty("sp.updateTest");
+            try (CallableStatement statement = connection.prepareCall(query)) {
+                statement.setInt(1, test.getId());
+                statement.setString(2, test.getTitle());
+                statement.setInt(3, test.getSubject().getId());
+                statement.setInt(4, test.getUser().getId());
+                return statement.execute();
+            }
+            catch (SQLException e) {
+                LOGGER.error("callable statement error: " + e);
+            }
+        }
+        catch (SQLException e) {
+            LOGGER.error("getting connection error: " + e);
+        }
+        finally {
+            connectionManager.releaseConnection(connection);
+        }
         return false;
     }
 
     @Override
     public boolean deleteTest(int testId) {
+        Connection connection = null;
+        try {
+            connection = connectionManager.getConnection();
+            String query = propertyManager.getProperty("sp.deleteTest");
+            try (CallableStatement statement = connection.prepareCall(query)) {
+                statement.setInt(1, testId);
+                return statement.execute();
+            }
+            catch (SQLException e) {
+                LOGGER.error("callable statement error: " + e);
+            }
+        }
+        catch (SQLException e) {
+            LOGGER.error("getting connection error: " + e);
+        }
+        finally {
+            connectionManager.releaseConnection(connection);
+        }
         return false;
     }
 

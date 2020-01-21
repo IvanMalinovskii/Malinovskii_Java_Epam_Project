@@ -1,6 +1,6 @@
 package system.dao.jdbc;
 
-import com.epam.testing.system.dao.JdbcTestDao;
+import com.epam.testing.system.dao.jdbc.JdbcTestDao;
 import com.epam.testing.system.entities.Answer;
 import com.epam.testing.system.entities.Question;
 import com.epam.testing.system.entities.Subject;
@@ -63,5 +63,31 @@ class JdbcTestDaoTest {
         int id = testDao.insertTest(test);
 
         Assert.assertEquals(10, id);
+    }
+
+    @Test
+    void updateTestTest() {
+        com.epam.testing.system.entities.Test test = new com.epam.testing.system.entities.Test();
+        test.setId(9);
+        test.setTitle("newTitle");
+        Subject subject = new Subject();
+        subject.setId(2);
+        test.setSubject(subject);
+        User user = new User();
+        user.setId(2);
+        test.setUser(user);
+
+        testDao.updateTest(test);
+
+        Assert.assertEquals("newTitle", testDao.getTestById(9).getTitle());
+    }
+
+    @Test
+    void deleteTestTest() {
+        int initialSize = testDao.getTests().size();
+        int expectedSize = initialSize - 1;
+        testDao.deleteTest(9);
+
+        Assert.assertEquals(expectedSize, testDao.getTests().size());
     }
 }

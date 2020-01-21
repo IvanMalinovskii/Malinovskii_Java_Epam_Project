@@ -55,3 +55,19 @@ begin
 		values(answerText, answerRight, questionId);
 	select last_insert_id();
 end //
+
+DELIMITER //
+create procedure updateTest(in testId int, testTitle varchar(50), subjectId int, userId int)
+begin
+	update tests
+		set tests.testTitle = testTitle,
+            tests.subjectId = subjectId,
+            tests.userId = userId
+		where tests.testId = testId;
+end //
+
+DELIMITER //
+create procedure deleteTest(in testId int)
+begin
+	delete from tests where tests.testId = testId;
+end //
