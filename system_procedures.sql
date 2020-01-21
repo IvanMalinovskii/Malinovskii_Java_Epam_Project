@@ -119,3 +119,32 @@ begin
 	select * from answers where answers.questionId = questionId;
 end //
 
+DELIMITER //
+create procedure deleteQuestion(in questionId int)
+begin
+	delete from questions where questions.questionId = questionId;
+end //
+
+DELIMITER //
+create procedure deleteAnswer(in answerId int)
+begin
+	select * from answers where answers.answerId = answerId;
+end //
+
+DELIMITER //
+create procedure updateQuestion(in questionId int, questionText varchar(100))
+begin
+	update questions
+		set questions.questionText = questionText
+		where questions.questionId = questionId;
+end //
+
+DELIMITER //
+create procedure updateAnswer(in answerId int, answerText varchar(50), answerRight bool)
+begin
+	update answers
+		set answers.answerText = answerText,
+			answers.answerRight = answerRight
+		where answers.answerId = answerId;
+end //
+

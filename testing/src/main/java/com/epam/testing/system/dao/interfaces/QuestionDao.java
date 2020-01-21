@@ -8,5 +8,5 @@ public interface QuestionDao {
     List<Question> getQuestions(int testId);
     boolean updateQuestion(Question question);
     boolean deleteQuestion(int questionId);
-    int insertQuestion(Question question);
+    int insertQuestion(Question question, int testId);
 }
