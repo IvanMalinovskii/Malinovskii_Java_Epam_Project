@@ -128,7 +128,7 @@ end //
 DELIMITER //
 create procedure deleteAnswer(in answerId int)
 begin
-	select * from answers where answers.answerId = answerId;
+	delete from answers where answers.answerId = answerId;
 end //
 
 DELIMITER //
