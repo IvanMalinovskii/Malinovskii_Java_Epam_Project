@@ -141,6 +141,30 @@ public class JdbcUserDao implements UserDao {
         return -1;
     }
 
+    @Override
+    public boolean deleteUser(int userId) {
+        Connection connection = null;
+        try {
+            connection = connectionManager.getConnection();
+            String query = propertyManager.getProperty("sp.deleteUser");
+            try (CallableStatement statement = connection.prepareCall(query)) {
+                statement.setInt(1, userId);
+                statement.execute();
+                return true;
+            }
+            catch (SQLException e) {
+                LOGGER.error("callable statement error: " + e);
+            }
+        }
+        catch (SQLException e) {
+            LOGGER.error("getting connection error: " + e);
+        }
+        finally {
+            connectionManager.releaseConnection(connection);
+        }
+        return false;
+    }
+
     private User getUser(ResultSet set, String login) throws SQLException {
         User user = new User();
         user.setId(set.getInt(1));

@@ -7,4 +7,5 @@ public interface UserDao {
     boolean checkLogin(String login);
     boolean checkMail(String mail);
     int insertUser(User user);
+    boolean deleteUser(int userId);
 }

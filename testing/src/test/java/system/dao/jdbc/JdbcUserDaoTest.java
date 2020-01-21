@@ -32,7 +32,7 @@ class JdbcUserDaoTest {
     @Test
     void insertUserTest() {
         User user = new User();
-        user.setLogin("LIN12");
+        user.setLogin("N12");
         user.setPassword("pass1234");
         user.setMail("maillll@mail.ru");
         user.setName("name");
@@ -44,5 +44,7 @@ class JdbcUserDaoTest {
         Assert.assertFalse(userDao.checkLogin(user.getLogin()));
         int id = userDao.insertUser(user);
         Assert.assertTrue(userDao.checkLogin(user.getLogin()));
+        boolean result = userDao.deleteUser(id);
+        Assert.assertTrue(result);
     }
 }

@@ -75,7 +75,7 @@ end //
 DELIMITER //
 create procedure getUser(in userLogin varchar(20), userPassword varchar(20))
 begin
-	select userId, userName, userSecondName, userSurname, roleName from users
+	select userId, userName, userSecondName, userSurname, roleName, users.roleId from users
 		inner join roles on users.roleId = roles.roleId
         where users.userLogin like userLogin and users.userPassword like userPassword; 
 end //
@@ -101,6 +101,12 @@ begin
 	insert into users(userLogin, userPassword, userMail, userName, userSecondName, userSurname, roleId)
 				values(userLogin, userPassword, userMail, userName, userSecondName, userSurname, roleId);
 	select last_insert_id();
+end //
+
+DELIMITER //
+create procedure deleteUser(in userId int)
+begin
+	delete from users where users.userId = userId;
 end //
 
 
