@@ -3,8 +3,8 @@ package com.epam.testing.system.dao.jdbc;
 import com.epam.testing.system.dao.interfaces.UserDao;
 import com.epam.testing.system.entities.Role;
 import com.epam.testing.system.entities.User;
-import com.epam.testing.system.managers.ConnectionManager;
-import com.epam.testing.system.managers.PropertyManager;
+import com.epam.testing.system.dao.jdbc.managers.ConnectionManager;
+import com.epam.testing.system.dao.jdbc.managers.PropertyManager;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 

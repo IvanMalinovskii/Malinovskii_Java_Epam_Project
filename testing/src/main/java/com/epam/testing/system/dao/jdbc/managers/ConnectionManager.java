@@ -1,4 +1,4 @@
-package com.epam.testing.system.managers;
+package com.epam.testing.system.dao.jdbc.managers;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
