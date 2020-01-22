@@ -161,3 +161,21 @@ begin
     select last_insert_id();
 end //
 
+DELIMITER //
+create procedure getMarksByUser(in userId int)
+begin
+	select markId, mark, testTitle, userLogin from marks
+		inner join tests on marks.testId = tests.testId
+        inner join users on marks.userId = users.userId
+    where marks.userId = userId;
+end //
+
+DELIMITER //
+create procedure getMarksByTest(in testId int)
+begin
+	select markId, mark, testTitle, userLogin from marks
+		inner join tests on marks.testId = tests.testId
+        inner join users on marks.userId = users.userId
+    where marks.testId = testId;
+end //
+
