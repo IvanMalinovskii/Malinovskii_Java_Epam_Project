@@ -33,4 +33,9 @@ public class JdbcDaoFactory implements DaoFactory {
     public MarkDao getMarkDao() {
         return new JdbcMarkDao();
     }
+
+    @Override
+    public RoleDao getRoleDao() {
+        return new JdbcRoleDao();
+    }
 }

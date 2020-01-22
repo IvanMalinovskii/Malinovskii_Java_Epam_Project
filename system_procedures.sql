@@ -164,7 +164,7 @@ end //
 DELIMITER //
 create procedure getMarksByUser(in userId int)
 begin
-	select markId, mark, testId, testTitle, userId, userLogin from marks
+	select markId, mark, marks.testId, testTitle, marks.userId, userLogin from marks
 		inner join tests on marks.testId = tests.testId
         inner join users on marks.userId = users.userId
     where marks.userId = userId;
@@ -173,7 +173,7 @@ end //
 DELIMITER //
 create procedure getMarksByTest(in testId int)
 begin
-	select markId, mark, testId, testTitle, userId, userLogin from marks
+	select markId, mark, marks.testId, testTitle, marks.userId, userLogin from marks
 		inner join tests on marks.testId = tests.testId
         inner join users on marks.userId = users.userId
     where marks.testId = testId;
@@ -183,4 +183,10 @@ DELIMITER //
 create procedure insertMark(in mark int, testId int, userId int)
 begin
 	insert into marks(mark, testId, userId) values(mark, testId, userId);
+end //
+
+DELIMITER //
+create procedure getRole(in roleName varchar(15))
+begin
+	select * from roles where roles.roleName = roleName;
 end //

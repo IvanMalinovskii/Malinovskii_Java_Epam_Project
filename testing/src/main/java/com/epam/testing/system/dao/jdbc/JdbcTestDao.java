@@ -184,7 +184,6 @@ public class JdbcTestDao implements TestDao {
                 statement.setInt(1, test.getId());
                 statement.setString(2, test.getTitle());
                 statement.setInt(3, test.getSubject().getId());
-                statement.setInt(4, test.getUser().getId());
                 return statement.execute();
             }
             catch (SQLException e) {

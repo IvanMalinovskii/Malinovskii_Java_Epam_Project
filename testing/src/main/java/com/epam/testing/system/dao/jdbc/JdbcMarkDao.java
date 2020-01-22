@@ -28,19 +28,19 @@ public class JdbcMarkDao implements MarkDao {
 
     @Override
     public List<Mark> getMarksByUser(int userId) {
-        return getMarks(userId);
+        return getMarks(userId, "sp.getMarksByUser");
     }
 
     @Override
     public List<Mark> getMarksByTest(int testId) {
-        return getMarks(testId);
+        return getMarks(testId, "sp.getMarksByTest");
     }
 
-    private List<Mark> getMarks(int id) {
+    private List<Mark> getMarks(int id, String key) {
         Connection connection = null;
         try {
             connection = connectionManager.getConnection();
-            String query = propertyManager.getProperty("sp.getMarkByUser");
+            String query = propertyManager.getProperty(key);
             try (CallableStatement statement = connection.prepareCall(query)) {
                 statement.setInt(1, id);
                 return getFromSet(statement);

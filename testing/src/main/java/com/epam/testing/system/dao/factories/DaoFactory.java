@@ -9,4 +9,5 @@ public interface DaoFactory {
     AnswerDao getAnswerDao();
     SubjectDao getSubjectDao();
     MarkDao getMarkDao();
+    RoleDao getRoleDao();
 }
