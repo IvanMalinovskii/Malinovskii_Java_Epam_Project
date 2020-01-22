@@ -148,3 +148,16 @@ begin
 		where answers.answerId = answerId;
 end //
 
+DELIMITER //
+create procedure getSubject(in subjectName varchar(15))
+begin
+	select * from subjects where subjects.subjectName like subjectName; 
+end //
+
+DELIMITER //
+create procedure insertSubject(in subjectName varchar(15))
+begin
+	insert into subjects(subjectName) values(subjectName);
+    select last_insert_id();
+end //
+
