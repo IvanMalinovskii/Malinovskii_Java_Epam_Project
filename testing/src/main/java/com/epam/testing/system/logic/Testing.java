@@ -4,9 +4,7 @@ import com.epam.testing.system.dao.factories.DaoFactory;
 import com.epam.testing.system.dao.factories.Source;
 import com.epam.testing.system.dao.factories.StaticFactory;
 import com.epam.testing.system.dao.interfaces.*;
-import com.epam.testing.system.entities.Answer;
-import com.epam.testing.system.entities.Question;
-import com.epam.testing.system.entities.Test;
+import com.epam.testing.system.entities.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.json.simple.JSONArray;
@@ -62,7 +60,145 @@ public class Testing {
         return response;
     }
 
-    public JSONObject insertTest
+    public JSONObject insertTest(JSONObject request) {
+        JSONObject response = new JSONObject();
+        Test test = getTest(request);
+        int testId = testDao.insertTest(test);
+        if (testId != -1) {
+            response.put("status", "success");
+            response.put("id", testId);
+        }
+        else {
+            response.put("status", "error");
+            response.put("cause", "data_base");
+        }
+        return response;
+    }
+
+    public JSONObject updateTest(JSONObject request) {
+        JSONObject response = new JSONObject();
+        Test test = getTest(request);
+        if (testDao.updateTest(test)) {
+            response.put("status", "success");
+        }
+        else {
+            response.put("status", "error");
+            response.put("cause", "data_base");
+        }
+        return response;
+    }
+
+    public JSONObject insertQuestion(JSONObject request) {
+        JSONObject response = new JSONObject();
+        Question question = getQuestion(request);
+        int testId = Integer.parseInt(request.getOrDefault("testId", -1).toString());
+        int questionId = questionDao.insertQuestion(question, testId);
+        if (questionId != -1) {
+            response.put("status", "success");
+            response.put("id", questionId);
+        }
+        else {
+            response.put("status", "error");
+            response.put("cause", "data_base");
+        }
+        return response;
+    }
+
+    public JSONObject updateQuestion(JSONObject request) {
+        JSONObject response = new JSONObject();
+        Question question = getQuestion(request);
+        if (questionDao.updateQuestion(question)) {
+            response.put("status", "success");
+        }
+        else {
+            response.put("status", "error");
+            response.put("cause", "data_base");
+        }
+        return response;
+    }
+
+    public JSONObject insertAnswer(JSONObject request) {
+        JSONObject response = new JSONObject();
+        Answer answer = getAnswer(request);
+        int questionId = Integer.parseInt(request.getOrDefault("questionId", -1).toString());
+        int answerId = answerDao.insertAnswer(answer, questionId);
+        if (answerId != -1) {
+            response.put("status", "success");
+            response.put("id", answerId);
+        }
+        else {
+            response.put("status", "error");
+            response.put("cause", "data_base");
+        }
+        return response;
+    }
+
+    public JSONObject updateAnswer(JSONObject request) {
+        JSONObject response = new JSONObject();
+        Answer answer = getAnswer(request);
+        if (answerDao.updateAnswer(answer)) {
+            response.put("status", "success");
+        }
+        else {
+            response.put("status", "error");
+            response.put("cause", "data_base");
+        }
+        return response;
+    }
+
+    public JSONObject deleteTest(JSONObject request) {
+        JSONObject response = new JSONObject();
+        int testId = Integer.parseInt(request.getOrDefault("id", -1).toString());
+        if (testDao.deleteTest(testId)) {
+            response.put("status", "success");
+        }
+        else {
+            response.put("status", "error");
+            response.put("cause", "data_base");
+        }
+        return response;
+    }
+
+    public JSONObject deleteQuestion(JSONObject request) {
+        JSONObject response = new JSONObject();
+        int questionId = Integer.parseInt(request.getOrDefault("id", -1).toString());
+        if (questionDao.deleteQuestion(questionId)) {
+            response.put("status", "success");
+        }
+        else {
+            response.put("status", "error");
+            response.put("cause", "data_base");
+        }
+        return response;
+    }
+
+    public JSONObject deleteAnswer(JSONObject request) {
+        JSONObject response = new JSONObject();
+        int answerId = Integer.parseInt(request.getOrDefault("id", -1).toString());
+        if (answerDao.deleteAnswer(answerId)) {
+            response.put("status", "success");
+        }
+        else {
+            response.put("status", "error");
+            response.put("cause", "data_base");
+        }
+        return response;
+    }
+
+    private Question getQuestion(JSONObject jsonQuestion) {
+        Question question = new Question();
+        question.setId(Integer.parseInt(jsonQuestion.getOrDefault("id", -1).toString()));
+        question.setText(jsonQuestion.getOrDefault("text", "none").toString());
+        return question;
+    }
+
+    private Answer getAnswer(JSONObject jsonAnswer) {
+        Answer answer = new Answer();
+        answer.setId(Integer.parseInt(jsonAnswer.getOrDefault("id", -1).toString()));
+        answer.setText(jsonAnswer.getOrDefault("text", "none").toString());
+        answer.setRight((Boolean) jsonAnswer.getOrDefault("right", false));
+        return answer;
+    }
 
     private JSONObject formTest(Test test) {
         JSONObject jsonTest = getJsonTest(test);
@@ -132,5 +268,25 @@ public class Testing {
 
     private Test getTest(JSONObject jsonTest) {
         Test test = new Test();
+        test.setId(Integer.parseInt(jsonTest.getOrDefault("id", "-1").toString()));
+        test.setTitle(jsonTest.getOrDefault("title", "none").toString());
+        String subjectName = jsonTest.getOrDefault("subject", "none").toString();
+        test.setSubject(getSubject(subjectName));
+        User user = new User();
+        user.setId(Integer.parseInt(jsonTest.getOrDefault("userId", "-1").toString()));
+        return test;
+    }
+
+    private Subject getSubject(String subjectName) {
+        Subject subject = new Subject();
+        if (!subjectName.equals("none")) {
+            subject = subjectDao.getSubject(subjectName);
+            if (subject == null) {
+                subject = new Subject();
+                subject.setSubject(subjectName);
+                subject.setId(subjectDao.insertSubject(subject));
+            }
+        }
+        return subject;
     }
 }

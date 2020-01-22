@@ -55,12 +55,11 @@ begin
 end //
 
 DELIMITER //
-create procedure updateTest(in testId int, testTitle varchar(50), subjectId int, userId int)
+create procedure updateTest(in testId int, testTitle varchar(50), subjectId int)
 begin
 	update tests
 		set tests.testTitle = testTitle,
-            tests.subjectId = subjectId,
-            tests.userId = userId
+            tests.subjectId = subjectId
 		where tests.testId = testId;
 end //
 
