@@ -1,0 +1,11 @@
+com\epam\testing\servlets\authorizators\AuthorizationServlet.class
+com\epam\testing\system\logic\changers\QuestionChanger.class
+com\epam\testing\servlets\testing\ChangeTestServlet.class
+com\epam\testing\system\logic\changers\AnswerChanger.class
+com\epam\testing\servlets\AjaxServlet.class
+com\epam\testing\servlets\testing\AssessmentServlet.class
+com\epam\testing\servlets\testing\ReadTestServlet.class
+com\epam\testing\system\logic\Assessment.class
+com\epam\testing\servlets\authorizators\AuthFilter.class
+com\epam\testing\system\logic\changers\Changer.class
+com\epam\testing\system\logic\changers\TestChanger.class
