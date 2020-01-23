@@ -48,7 +48,6 @@ public class AuthorizationServlet extends AjaxServlet {
     private void addSession(HttpServletRequest req, JSONObject jsonResponse) {
         if (jsonResponse.get("status").toString().equals("success")) {
             HttpSession session = req.getSession(true);
-            session.setAttribute("id", jsonResponse.get("id").toString());
         }
     }
 }

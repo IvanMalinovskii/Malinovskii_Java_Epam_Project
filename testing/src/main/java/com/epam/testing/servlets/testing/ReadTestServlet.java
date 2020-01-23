@@ -7,10 +7,11 @@ import org.json.simple.JSONObject;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-public class TestServlet extends AjaxServlet {
+public class ReadTestServlet extends AjaxServlet {
     Testing testing;
 
     @Override
@@ -33,15 +34,6 @@ public class TestServlet extends AjaxServlet {
                 break;
             case "getById":
                 jsonResponse = testing.getTestById(jsonRequest);
-                break;
-            case "insert":
-                jsonResponse = testing.insertTest(jsonRequest);
-                break;
-            case "update":
-                jsonResponse = testing.updateTest(jsonRequest);
-                break;
-            case "delete":
-                jsonResponse = testing.deleteTest(jsonRequest);
                 break;
             default:
                 jsonResponse = new JSONObject();
