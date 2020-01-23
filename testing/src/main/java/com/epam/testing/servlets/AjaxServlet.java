@@ -12,7 +12,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 
 public abstract class AjaxServlet extends HttpServlet {
-    private static final Logger LOGGER = LogManager.getLogger(AjaxServlet.class);
+    protected static final Logger LOGGER = LogManager.getLogger(AjaxServlet.class);
 
     protected JSONObject getJsonRequest(HttpServletRequest request) {
         try {
