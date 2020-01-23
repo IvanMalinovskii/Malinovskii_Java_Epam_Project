@@ -1,15 +1,18 @@
-package com.epam.testing.servlets;
+package com.epam.testing.servlets.authorizators;
 
+import com.epam.testing.servlets.AjaxServlet;
 import com.epam.testing.system.logic.Authorization;
 import org.json.simple.JSONObject;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+@WebServlet("/authorization")
 public class AuthorizationServlet extends AjaxServlet {
     Authorization authorization;
 

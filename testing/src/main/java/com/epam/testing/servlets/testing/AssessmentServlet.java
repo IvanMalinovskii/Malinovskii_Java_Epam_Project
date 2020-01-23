@@ -1,7 +1,7 @@
 package com.epam.testing.servlets.testing;
 
 import com.epam.testing.servlets.AjaxServlet;
-import com.epam.testing.system.logic.Testing;
+import com.epam.testing.system.logic.Assessment;
 import org.json.simple.JSONObject;
 
 import javax.servlet.ServletException;
@@ -11,14 +11,14 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-@WebServlet("/test")
-public class ReadTestServlet extends AjaxServlet {
-    Testing testing;
+@WebServlet("/marks")
+public class AssessmentServlet extends AjaxServlet {
+    Assessment assessment;
 
     @Override
     public void init() throws ServletException {
         super.init();
-        testing = new Testing();
+        assessment = new Assessment();
     }
 
     @Override
@@ -27,20 +27,21 @@ public class ReadTestServlet extends AjaxServlet {
         JSONObject jsonResponse;
 
         switch (jsonRequest.getOrDefault("action", "none").toString()) {
-            case "getAll":
-                jsonResponse = testing.getTests();
+            case "getByTest":
+                jsonResponse = assessment.getMarksByTest(jsonRequest);
                 break;
             case "getByUser":
-                jsonResponse = testing.getTests(jsonRequest);
+                jsonResponse = assessment.getMarksByUser(jsonRequest);
                 break;
-            case "getById":
-                jsonResponse = testing.getTestById(jsonRequest);
+            case "insert":
+                jsonResponse = assessment.insertMark(jsonRequest);
                 break;
             default:
                 jsonResponse = new JSONObject();
                 jsonResponse.put("status", "error");
-                jsonResponse.put("cause", "invalid_action");
-                LOGGER.warn("invalid request");
+                jsonResponse.put("cause", "invalid request");
+                LOGGER.error("invalid request");
+                break;
         }
         resp.setCharacterEncoding("UTF-8");
         resp.setContentType("application/json");
