@@ -47,7 +47,7 @@ class Authorizator {
 			request.onload = function() {
 				if(request.status == 200) {
 					let response = JSON.parse(request.response);
-					resolve({status: response.status});
+					resolve({status : response.status, content: response});
 				}
 				else {
 					reject({status: request.status});
