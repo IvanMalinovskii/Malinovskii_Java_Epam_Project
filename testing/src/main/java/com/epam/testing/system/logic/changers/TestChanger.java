@@ -69,6 +69,7 @@ public class TestChanger extends Changer {
         test.setSubject(getSubject(subjectName));
         User user = new User();
         user.setId(Integer.parseInt(jsonTest.getOrDefault("userId", "-1").toString()));
+        test.setUser(user);
         return test;
     }
 

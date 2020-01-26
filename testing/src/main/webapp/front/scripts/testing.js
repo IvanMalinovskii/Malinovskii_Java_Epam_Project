@@ -3,6 +3,17 @@ var testsJson = {
 	tests: []
 }
 
+function loadPage(link) {
+	let request = new XMLHttpRequest();
+	request.open('GET', link);
+	request.send();
+
+	request.onload = function() {
+		document.getElementById('central_div').innerHTML = request.response;
+		getTest();
+	}
+}
+
 function setHeader() {
 	let headerString = sessionStorage.getItem('userName') + " " 
 					   + sessionStorage.getItem('userSurname') + " "
@@ -22,6 +33,7 @@ function formTable(/*testsJson = {}*/) {
 		row.insertCell(4).innerHTML = testsJson.tests[index].surname;
 		row.onclick = function() {
 			sessionStorage.setItem('testId', Number(testsJson.tests[index].id));
+			loadPage('additionals/exam.html');
 		};
 	}
 }
@@ -33,7 +45,8 @@ function formButtons(/*testsJson = {}*/) {
 		let row = table.insertRow(rowsCount);
 		row.insertCell(0).innerHTML = 'marks';
 		row.cells[0].onclick = function() {
-			alert('right cell');
+			sessionStorage.setItem('testId', Number(testsJson.tests[index].id));
+			document.location.href = '#';
 		}
 	}
 }
@@ -44,14 +57,11 @@ function onload() {
 	getTests('http://localhost:8080/testing-1.0/test', flag);
 }
 
-// to do: add a request for getting tests 
-
 function getTests(link = '', IsStudent = false) {
 	let jsonObj = {
 		action: IsStudent ? 'getAll' : 'getByUser',
-		id: sessionStorage.getItem('userId')
+		login: sessionStorage.getItem('userLogin')
 	}
-
 	let request = new XMLHttpRequest();
 	request.open('POST', link);
 	request.send(JSON.stringify(jsonObj));

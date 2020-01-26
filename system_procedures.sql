@@ -182,6 +182,7 @@ DELIMITER //
 create procedure insertMark(in mark int, testId int, userId int)
 begin
 	insert into marks(mark, testId, userId) values(mark, testId, userId);
+    select last_insert_id();
 end //
 
 DELIMITER //

@@ -90,7 +90,7 @@ public class JdbcMarkDao implements MarkDao {
             connection = connectionManager.getConnection();
             String query = propertyManager.getProperty("sp.insertMark");
             try (CallableStatement statement = connection.prepareCall(query)) {
-                statement.setInt(1, mark.getId());
+                statement.setInt(1, mark.getValue());
                 statement.setInt(2, mark.getTest().getId());
                 statement.setInt(3, mark.getUser().getId());
                 try (ResultSet resultSet = statement.executeQuery()) {

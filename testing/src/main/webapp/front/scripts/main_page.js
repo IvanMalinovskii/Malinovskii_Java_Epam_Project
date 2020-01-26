@@ -23,11 +23,6 @@ function signUp() {
 		authorizator.doRequest('signUp').then(
 			result => {
 				if (result.status == 'success') {
-					sessionStorage.setItem('userId', result.content.id);
-					sessionStorage.setItem('userLogin', login);
-					sessionStorage.setItem('userRole', 'student');
-					sessionStorage.setItem('userName', name);
-					sessionStorage.setItem('userSurname', surname);
 					document.location.href = 'testing.html';
 				}
 			},
@@ -47,11 +42,6 @@ function signIn() {
 		authorizator.doRequest('signIn').then(
 			result => {
 				if (result.status == 'success') {
-					sessionStorage.setItem('userId', result.content.id);
-					sessionStorage.setItem('userLogin', login);
-					sessionStorage.setItem('userRole', result.content.role);
-					sessionStorage.setItem('userName', result.content.name);
-					sessionStorage.setItem('userSurname', result.content.surname);
 					document.location.href = 'testing.html';
 				}
 			},
