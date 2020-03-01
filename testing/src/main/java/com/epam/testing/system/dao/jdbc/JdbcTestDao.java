@@ -184,7 +184,8 @@ public class JdbcTestDao implements TestDao {
                 statement.setInt(1, test.getId());
                 statement.setString(2, test.getTitle());
                 statement.setInt(3, test.getSubject().getId());
-                return statement.execute();
+                statement.execute();
+                return true;
             }
             catch (SQLException e) {
                 LOGGER.error("callable statement error: " + e);
@@ -207,7 +208,8 @@ public class JdbcTestDao implements TestDao {
             String query = propertyManager.getProperty("sp.deleteTest");
             try (CallableStatement statement = connection.prepareCall(query)) {
                 statement.setInt(1, testId);
-                return statement.execute();
+                statement.execute();
+                return true;
             }
             catch (SQLException e) {
                 LOGGER.error("callable statement error: " + e);

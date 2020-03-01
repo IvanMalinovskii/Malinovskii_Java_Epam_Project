@@ -1,0 +1,74 @@
+        table 
+        {
+            width: 80%;
+            font: 17px Calibri;
+            margin: auto;
+        }
+        table, th, td 
+        {
+            border: solid 1px #DDD;
+            border-collapse: collapse;
+            padding: 2px 3px;
+            text-align: center;
+        }
+      
+        
+
+        input[type='button'] 
+        {
+            font: 15px Calibri;
+            cursor: pointer;
+            border: none;
+            color: #FFF;
+        }
+        
+        input[type='text'], select 
+        {
+            font: 17px Calibri;
+            text-align: center;
+            border: solid 1px #CCC;
+            width: auto;
+            padding: 2px 3px;
+        }
+
+        p {
+            box-sizing: border-box;
+        }
+
+        .q_p {
+            font: 20px Calibri;
+            padding-left: 10px;
+            box-sizing: border-box;
+        }
+
+        .questions_div {
+            width: 70%;
+            margin: auto;
+            padding: 5px;
+            background-color: #00aaff;
+            border: 1px solid blue;
+            border-bottom: none;
+        }
+
+        .check_container {
+            font: 20px Calibri;
+            margin: 5px;        }
+
+        .but {
+            width: 100px;
+            background-color: blue; 
+            padding: 5px; 
+            border: none; 
+            color: white;
+        }
+
+        .button_div {
+            width: 70%;
+            margin: auto;
+            padding-left: 10px;
+            padding-top: 20px;
+            padding-bottom: 5px;
+            border: 1px solid blue;
+            border-top: none;
+            background-color: #00aaff;
+        }

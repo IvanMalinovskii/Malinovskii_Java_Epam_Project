@@ -3,6 +3,9 @@ package com.epam.testing.system.dao.factories;
 import com.epam.testing.system.dao.interfaces.*;
 import com.epam.testing.system.dao.jdbc.*;
 
+/**
+ * gets jdbc daos
+ */
 public class JdbcDaoFactory implements DaoFactory {
     @Override
     public UserDao getUserDao() {

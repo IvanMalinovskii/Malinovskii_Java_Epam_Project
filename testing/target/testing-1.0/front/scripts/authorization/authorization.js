@@ -30,6 +30,9 @@ function signUp() {
 					sessionStorage.setItem('userSurname', surname);
 					document.location.href = 'testing.html';
 				}
+				else {
+					alert("error: " + result.content.status + ': ' + result.content.cause);
+				}
 			},
 			error => alert(JSON.stringify(error))
 		);
@@ -53,6 +56,9 @@ function signIn() {
 					sessionStorage.setItem('userName', result.content.name);
 					sessionStorage.setItem('userSurname', result.content.surname);
 					document.location.href = 'testing.html';
+				}
+				else {
+					alert("login or password is invalid");
 				}
 			},
 			error => alert(JSON.stringify(error))

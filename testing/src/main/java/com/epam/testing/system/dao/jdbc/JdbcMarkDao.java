@@ -16,6 +16,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * describes jdbc mark dao
+ */
 public class JdbcMarkDao implements MarkDao {
     private ConnectionManager connectionManager;
     private PropertyManager propertyManager;
@@ -27,22 +30,23 @@ public class JdbcMarkDao implements MarkDao {
     }
 
     @Override
-    public List<Mark> getMarksByUser(int userId) {
-        return getMarks(userId, "sp.getMarksByUser");
+    public List<Mark> getMarksByUser(int userId, int testId) {
+        return getMarks(new int[] {userId, testId}, "sp.getMarksByUser");
     }
 
     @Override
     public List<Mark> getMarksByTest(int testId) {
-        return getMarks(testId, "sp.getMarksByTest");
+        return getMarks(new int[] {testId}, "sp.getMarksByTest");
     }
 
-    private List<Mark> getMarks(int id, String key) {
+    private List<Mark> getMarks(int[] ids, String key) {
         Connection connection = null;
         try {
             connection = connectionManager.getConnection();
             String query = propertyManager.getProperty(key);
             try (CallableStatement statement = connection.prepareCall(query)) {
-                statement.setInt(1, id);
+                for (int i = 0; i < ids.length; i++)
+                    statement.setInt(i + 1, ids[i]);
                 return getFromSet(statement);
             }
             catch (SQLException e) {

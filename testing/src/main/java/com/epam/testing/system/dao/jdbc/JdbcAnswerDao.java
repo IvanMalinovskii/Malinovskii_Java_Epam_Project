@@ -14,6 +14,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * describes jdbc dao
+ */
 public class JdbcAnswerDao implements AnswerDao {
     private ConnectionManager connectionManager;
     private PropertyManager propertyManager;

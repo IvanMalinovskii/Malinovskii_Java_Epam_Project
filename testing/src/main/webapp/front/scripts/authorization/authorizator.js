@@ -29,7 +29,7 @@ class Authorizator {
 		let jsonObject = {
 			action: action,
 			login: this._login,
-			email: this._email,
+			mail: this._email,
 			password: this._password,
 			role: this._role,
 			name: this._name,
@@ -47,7 +47,7 @@ class Authorizator {
 			request.onload = function() {
 				if(request.status == 200) {
 					let response = JSON.parse(request.response);
-					resolve({status: response.status});
+					resolve({status : response.status, content: response});
 				}
 				else {
 					reject({status: request.status});

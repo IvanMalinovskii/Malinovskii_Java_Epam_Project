@@ -7,16 +7,20 @@ class Validator {
 
 	// validates a string by a type
 	validate(line, type) {
+		let pattern = '';
 		switch(type) {
-			let pattern = '';
 			case 'login':
 				pattern = this._LOGIN_PATTERN;
+				break;
 			case 'email':
 				pattern = this._EMAIL_PATTERN;
+				break;
 			case 'password':
 				pattern = this._PASS_PATTERN;
+				break;
 			case 'name':
 				pattern = this._NAME_PATTERN;
+				break;
 			default:
 				return false;
 		}

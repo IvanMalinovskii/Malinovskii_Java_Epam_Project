@@ -11,9 +11,17 @@ import javax.servlet.http.HttpServletRequest;
 import java.io.BufferedReader;
 import java.io.IOException;
 
+/**
+ * abstract class for parsing requests
+ */
 public abstract class AjaxServlet extends HttpServlet {
     protected static final Logger LOGGER = LogManager.getLogger(AjaxServlet.class);
 
+    /**
+     * parses requests into json format
+     * @param request request
+     * @return json object
+     */
     protected JSONObject getJsonRequest(HttpServletRequest request) {
         try {
             BufferedReader reader = request.getReader();

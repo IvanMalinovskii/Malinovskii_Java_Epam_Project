@@ -3,38 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <title>Testing</title>
-    <link rel="stylesheet" type="text/css" href="../styles/testing_style.css">
-    <link rel="stylesheet" type="text/css" href="../styles/form_style.css">
-    <link rel="stylesheet" type="text/css" href="../styles/exam.css">
-    <script type="text/javascript" src="../scripts/test.js"></script>
-	<script type="text/javascript" src="../scripts/exam.js"></script>
-    <script type="text/javascript" src="../scripts/testing.js"></script>
+    <link rel="stylesheet" type="text/css" href="../styles/creating.css">
+    <script type="text/javascript" src="../scripts/creating/controls_creator.js"></script>
+	<script type="text/javascript" src="../scripts/creating/creating.js"></script>
+    <script type="text/javascript" src="../scripts/passing/test.js"></script>
+	<script type="text/javascript" src="../scripts/passing/exam.js"></script>
+	<script type="text/javascript" src="../scripts/marks/marks.js"></script>
+    <script type="text/javascript" src="../scripts/tests/testing.js"></script>
 </head>
-<body onload="onload()">
+<body onload="onload()" style="background-color: #e6ecff;">
 	<div  class="header">
-		<p class="description" id="description"></p>
-	</div>
-	<div id="central_div">
-		<div class="container">
-			<div class="table_div">
-				<table id="tests_table" class="tests">
-					<tr>
-						<th>№</th>
-						<th>title</th>
-						<th>subject</th>
-						<th>name</th>
-						<th>surname</th>
-					</tr>
-				</table>
-			</div>
-			<div class="buttons_div">
-				<table id="buttons_table" class="tests">
-					<tr>
-						<th>marks</th>
-					</tr>
-				</table>
-			</div>
+		<p id="description" style="cursor: pointer; width: 100%; background-color: #809fff; height: 40px; margin: auto; padding: 10px 5px;"></p>
+		<div style="position: absolute; padding: 5px; background-color: blue; top: 15px; right: 15px;">
+			<a href="authorization.html" style="text-decoration: none; color: white;">
+				authorization
+			</a>
 		</div>
+	</div>
+	<div id="central_div" style="width: 80%; margin: auto; padding: 10px 0; background-color: #b3c6ff;">
 	</div>
 </body>
 </html>

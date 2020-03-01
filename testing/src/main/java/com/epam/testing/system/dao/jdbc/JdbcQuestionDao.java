@@ -14,6 +14,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * describes jdbc question dao
+ */
 public class JdbcQuestionDao implements QuestionDao {
     private ConnectionManager connectionManager;
     private PropertyManager propertyManager;

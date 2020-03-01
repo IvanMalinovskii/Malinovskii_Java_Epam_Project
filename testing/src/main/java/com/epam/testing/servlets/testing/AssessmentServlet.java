@@ -11,6 +11,9 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+/**
+ * received requests for working with marks
+ */
 @WebServlet("/marks")
 public class AssessmentServlet extends AjaxServlet {
     Assessment assessment;

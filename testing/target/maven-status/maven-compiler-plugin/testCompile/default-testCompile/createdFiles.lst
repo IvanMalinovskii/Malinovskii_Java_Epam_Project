@@ -1,0 +1,7 @@
+system\dao\jdbc\JdbcQuestionDaoTest.class
+system\logic\TestingTest.class
+system\dao\jdbc\JdbcSubjectDaoTest.class
+system\dao\jdbc\JdbcTestDaoTest.class
+system\dao\jdbc\JdbcUserDaoTest.class
+system\dao\jdbc\JdbcAnswerDaoTest.class
+system\logic\AuthorizationTest.class

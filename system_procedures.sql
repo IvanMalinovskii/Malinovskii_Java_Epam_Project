@@ -161,7 +161,7 @@ begin
 end //
 
 DELIMITER //
-create procedure getMarksByUser(in userId int)
+create procedure getMarksByUser(in userId int, testId int)
 begin
 	select markId, mark, marks.testId, testTitle, marks.userId, userLogin from marks
 		inner join tests on marks.testId = tests.testId

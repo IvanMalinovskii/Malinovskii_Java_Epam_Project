@@ -4,6 +4,9 @@ import com.epam.testing.system.dao.interfaces.QuestionDao;
 import com.epam.testing.system.entities.Question;
 import org.json.simple.JSONObject;
 
+/**
+ * describes a question changer
+ */
 public class QuestionChanger extends Changer {
     private QuestionDao questionDao;
 

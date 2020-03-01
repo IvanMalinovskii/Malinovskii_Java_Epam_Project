@@ -12,6 +12,9 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+/**
+ * filters requests to servlets and pages
+ */
 @WebFilter(servletNames = {"AssessmentServlet", "ChangeTestServlet", "ReadTestServlet"},
            urlPatterns = {"/front/pages/testing.html"})
 public class AuthFilter implements Filter {

@@ -13,6 +13,9 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+/**
+ * describes jdbc user dao
+ */
 public class JdbcUserDao implements UserDao {
     private ConnectionManager connectionManager;
     private PropertyManager propertyManager;

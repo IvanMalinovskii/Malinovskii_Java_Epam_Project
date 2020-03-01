@@ -4,6 +4,9 @@ import com.epam.testing.system.dao.interfaces.AnswerDao;
 import com.epam.testing.system.entities.Answer;
 import org.json.simple.JSONObject;
 
+/**
+ * describes an answer changer
+ */
 public class AnswerChanger extends Changer {
     private AnswerDao answerDao;
 
@@ -61,7 +64,7 @@ public class AnswerChanger extends Changer {
         Answer answer = new Answer();
         answer.setId(Integer.parseInt(jsonAnswer.getOrDefault("id", -1).toString()));
         answer.setText(jsonAnswer.getOrDefault("text", "none").toString());
-        answer.setRight((Boolean) jsonAnswer.getOrDefault("right", false));
+        answer.setRight(Boolean.valueOf(jsonAnswer.getOrDefault("right", false).toString()));
         return answer;
     }
 }

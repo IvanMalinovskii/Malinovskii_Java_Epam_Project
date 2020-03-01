@@ -4,6 +4,9 @@ import com.epam.testing.system.entities.Question;
 
 import java.util.List;
 
+/**
+ * describes question dao
+ */
 public interface QuestionDao {
     List<Question> getQuestions(int testId);
     boolean updateQuestion(Question question);

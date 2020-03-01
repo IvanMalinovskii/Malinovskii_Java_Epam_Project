@@ -16,6 +16,9 @@ import org.json.simple.JSONObject;
 
 import java.util.List;
 
+/**
+ * describes logic for working with answers daos
+ */
 public class Assessment {
     private MarkDao markDao;
     private static final Logger LOGGER = LogManager.getLogger(Assessment.class);
@@ -31,13 +34,14 @@ public class Assessment {
     }
 
     public JSONObject getMarksByUser(JSONObject request) {
-        int userId = Integer.parseInt(request.getOrDefault("id", -1).toString());
-        List<Mark> marks = markDao.getMarksByUser(userId);
+        int userId = Integer.parseInt(request.getOrDefault("userId", -1).toString());
+        int testId = Integer.parseInt(request.getOrDefault("testId", -1).toString());
+        List<Mark> marks = markDao.getMarksByUser(userId, testId);
         return getResponse(marks);
     }
 
     public JSONObject getMarksByTest(JSONObject request) {
-        int testId = Integer.parseInt(request.getOrDefault("id", -1).toString());
+        int testId = Integer.parseInt(request.getOrDefault("testId", -1).toString());
         List<Mark> marks = markDao.getMarksByTest(testId);
         return getResponse(marks);
     }

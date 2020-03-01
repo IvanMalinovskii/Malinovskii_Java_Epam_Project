@@ -28,7 +28,7 @@ function createDivQuestion(question = {}, qIndex) {
 	let div = document.createElement('div');
 	div.className = 'inner_div';
 	div.id = 'question' + qIndex;
-	div.innerHTML = "<p>" + question.text + "</p>";
+	div.innerHTML = "<p class='q_p'>" + (qIndex + 1) + ': ' + question.text + "</p>";
 	for (let i = 0; i < question.answers.length; i++) {
 			let checkbox_id = 'id="answer' + qIndex + '_' + i + '"';
 			//alert(checkbox_id);
@@ -90,6 +90,9 @@ function resultClick() {
 				//alert('+');
 				let p = document.createElement('p');
 				p.innerText = 'Your mark is ' + jsonRequest.value;
+				document.getElementById('next_but').style.display = 'none';
+				document.getElementById('prev_but').style.display = 'none';
+				document.getElementById('result_button').style.display = 'none';
 				document.getElementById('questions').append(p);
 			}
 			else {

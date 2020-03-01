@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="51edcfd9-e6aa-4205-9483-0534c1c74925" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/testing/src/main/java/com/epam/testing/servlets/authorizators/PagesFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/testing/src/main/webapp/front/scripts/authorization/authorization.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/testing/src/main/webapp/front/scripts/authorization/authorizator.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/testing/src/main/webapp/front/scripts/authorization/validator.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/testing/src/main/webapp/front/scripts/creating/controls_creator.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/testing/src/main/webapp/front/scripts/creating/creating.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/testing/src/main/webapp/front/scripts/marks/marks.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/testing/src/main/webapp/front/scripts/passing/exam.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/testing/src/main/webapp/front/scripts/passing/test.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/testing/src/main/webapp/front/scripts/tests/main_page.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/testing/src/main/webapp/front/scripts/tests/testing.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/testing/src/main/webapp/front/styles/authorization/authorization_style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/system_procedures.sql" beforeDir="false" afterPath="$PROJECT_DIR$/system_procedures.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testing/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/testing/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testing/src/main/java/com/epam/testing/servlets/AjaxServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/testing/src/main/java/com/epam/testing/servlets/AjaxServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testing/src/main/java/com/epam/testing/servlets/authorizators/AuthFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/testing/src/main/java/com/epam/testing/servlets/authorizators/AuthFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testing/src/main/java/com/epam/testing/servlets/authorizators/AuthorizationServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/testing/src/main/java/com/epam/testing/servlets/authorizators/AuthorizationServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testing/src/main/java/com/epam/testing/servlets/testing/AssessmentServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/testing/src/main/java/com/epam/testing/servlets/testing/AssessmentServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testing/src/main/java/com/epam/testing/servlets/testing/ChangeTestServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/testing/src/main/java/com/epam/testing/servlets/testing/ChangeTestServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testing/src/main/java/com/epam/testing/servlets/testing/ReadTestServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/testing/src/main/java/com/epam/testing/servlets/testing/ReadTestServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testing/src/main/java/com/epam/testing/system/dao/factories/DaoFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/testing/src/main/java/com/epam/testing/system/dao/factories/DaoFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testing/src/main/java/com/epam/testing/system/dao/factories/JdbcDaoFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/testing/src/main/java/com/epam/testing/system/dao/factories/JdbcDaoFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testing/src/main/java/com/epam/testing/system/dao/factories/Source.java" beforeDir="false" afterPath="$PROJECT_DIR$/testing/src/main/java/com/epam/testing/system/dao/factories/Source.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testing/src/main/java/com/epam/testing/system/dao/factories/StaticFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/testing/src/main/java/com/epam/testing/system/dao/factories/StaticFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testing/src/main/java/com/epam/testing/system/dao/interfaces/AnswerDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/testing/src/main/java/com/epam/testing/system/dao/interfaces/AnswerDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testing/src/main/java/com/epam/testing/system/dao/interfaces/MarkDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/testing/src/main/java/com/epam/testing/system/dao/interfaces/MarkDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testing/src/main/java/com/epam/testing/system/dao/interfaces/QuestionDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/testing/src/main/java/com/epam/testing/system/dao/interfaces/QuestionDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testing/src/main/java/com/epam/testing/system/dao/interfaces/RoleDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/testing/src/main/java/com/epam/testing/system/dao/interfaces/RoleDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testing/src/main/java/com/epam/testing/system/dao/interfaces/SubjectDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/testing/src/main/java/com/epam/testing/system/dao/interfaces/SubjectDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testing/src/main/java/com/epam/testing/system/dao/interfaces/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/testing/src/main/java/com/epam/testing/system/dao/interfaces/UserDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testing/src/main/java/com/epam/testing/system/dao/jdbc/JdbcAnswerDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/testing/src/main/java/com/epam/testing/system/dao/jdbc/JdbcAnswerDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testing/src/main/java/com/epam/testing/system/dao/jdbc/JdbcMarkDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/testing/src/main/java/com/epam/testing/system/dao/jdbc/JdbcMarkDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testing/src/main/java/com/epam/testing/system/dao/jdbc/JdbcQuestionDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/testing/src/main/java/com/epam/testing/system/dao/jdbc/JdbcQuestionDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testing/src/main/java/com/epam/testing/system/dao/jdbc/JdbcRoleDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/testing/src/main/java/com/epam/testing/system/dao/jdbc/JdbcRoleDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testing/src/main/java/com/epam/testing/system/dao/jdbc/JdbcSubjectDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/testing/src/main/java/com/epam/testing/system/dao/jdbc/JdbcSubjectDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testing/src/main/java/com/epam/testing/system/dao/jdbc/JdbcTestDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/testing/src/main/java/com/epam/testing/system/dao/jdbc/JdbcTestDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testing/src/main/java/com/epam/testing/system/dao/jdbc/JdbcUserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/testing/src/main/java/com/epam/testing/system/dao/jdbc/JdbcUserDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testing/src/main/java/com/epam/testing/system/logic/Assessment.java" beforeDir="false" afterPath="$PROJECT_DIR$/testing/src/main/java/com/epam/testing/system/logic/Assessment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testing/src/main/java/com/epam/testing/system/logic/Authorization.java" beforeDir="false" afterPath="$PROJECT_DIR$/testing/src/main/java/com/epam/testing/system/logic/Authorization.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testing/src/main/java/com/epam/testing/system/logic/Testing.java" beforeDir="false" afterPath="$PROJECT_DIR$/testing/src/main/java/com/epam/testing/system/logic/Testing.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testing/src/main/java/com/epam/testing/system/logic/changers/AnswerChanger.java" beforeDir="false" afterPath="$PROJECT_DIR$/testing/src/main/java/com/epam/testing/system/logic/changers/AnswerChanger.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testing/src/main/java/com/epam/testing/system/logic/changers/Changer.java" beforeDir="false" afterPath="$PROJECT_DIR$/testing/src/main/java/com/epam/testing/system/logic/changers/Changer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testing/src/main/java/com/epam/testing/system/logic/changers/QuestionChanger.java" beforeDir="false" afterPath="$PROJECT_DIR$/testing/src/main/java/com/epam/testing/system/logic/changers/QuestionChanger.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testing/src/main/java/com/epam/testing/system/logic/changers/TestChanger.java" beforeDir="false" afterPath="$PROJECT_DIR$/testing/src/main/java/com/epam/testing/system/logic/changers/TestChanger.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testing/src/main/resources/data_base.properties" beforeDir="false" afterPath="$PROJECT_DIR$/testing/src/main/resources/data_base.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testing/src/main/webapp/front/pages/additionals/exam.html" beforeDir="false" afterPath="$PROJECT_DIR$/testing/src/main/webapp/front/pages/additionals/exam.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testing/src/main/webapp/front/pages/authorization.html" beforeDir="false" afterPath="$PROJECT_DIR$/testing/src/main/webapp/front/pages/authorization.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testing/src/main/webapp/front/pages/testing.html" beforeDir="false" afterPath="$PROJECT_DIR$/testing/src/main/webapp/front/pages/testing.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testing/src/main/webapp/front/scripts/authorization.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/testing/src/main/webapp/front/scripts/authorizator.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/testing/src/main/webapp/front/scripts/exam.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/testing/src/main/webapp/front/scripts/main_page.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/testing/src/main/webapp/front/scripts/test.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/testing/src/main/webapp/front/scripts/testing.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/testing/src/main/webapp/front/scripts/validator.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/testing/src/main/webapp/front/styles/exam.css" beforeDir="false" afterPath="$PROJECT_DIR$/testing/src/main/webapp/front/styles/exam.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testing/target/classes/META-INF/testing.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/testing/target/classes/com/epam/testing/system/dao/interfaces/MarkDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/testing/target/classes/com/epam/testing/system/dao/interfaces/MarkDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testing/target/classes/com/epam/testing/system/dao/jdbc/JdbcMarkDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/testing/target/classes/com/epam/testing/system/dao/jdbc/JdbcMarkDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testing/target/classes/com/epam/testing/system/dao/jdbc/JdbcTestDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/testing/target/classes/com/epam/testing/system/dao/jdbc/JdbcTestDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testing/target/classes/com/epam/testing/system/logic/Assessment.class" beforeDir="false" afterPath="$PROJECT_DIR$/testing/target/classes/com/epam/testing/system/logic/Assessment.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testing/target/classes/com/epam/testing/system/logic/changers/AnswerChanger.class" beforeDir="false" afterPath="$PROJECT_DIR$/testing/target/classes/com/epam/testing/system/logic/changers/AnswerChanger.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testing/target/classes/data_base.properties" beforeDir="false" afterPath="$PROJECT_DIR$/testing/target/classes/data_base.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testing/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/testing/target/maven-archiver/pom.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testing/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/testing/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testing/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/testing/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testing/target/testing-1.0.war" beforeDir="false" afterPath="$PROJECT_DIR$/testing/target/testing-1.0.war" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testing/target/testing-1.0/WEB-INF/classes/META-INF/testing.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/testing/target/testing-1.0/WEB-INF/classes/com/epam/testing/system/dao/interfaces/MarkDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/testing/target/testing-1.0/WEB-INF/classes/com/epam/testing/system/dao/interfaces/MarkDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testing/target/testing-1.0/WEB-INF/classes/com/epam/testing/system/dao/jdbc/JdbcMarkDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/testing/target/testing-1.0/WEB-INF/classes/com/epam/testing/system/dao/jdbc/JdbcMarkDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testing/target/testing-1.0/WEB-INF/classes/com/epam/testing/system/dao/jdbc/JdbcTestDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/testing/target/testing-1.0/WEB-INF/classes/com/epam/testing/system/dao/jdbc/JdbcTestDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testing/target/testing-1.0/WEB-INF/classes/com/epam/testing/system/logic/Assessment.class" beforeDir="false" afterPath="$PROJECT_DIR$/testing/target/testing-1.0/WEB-INF/classes/com/epam/testing/system/logic/Assessment.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testing/target/testing-1.0/WEB-INF/classes/com/epam/testing/system/logic/changers/AnswerChanger.class" beforeDir="false" afterPath="$PROJECT_DIR$/testing/target/testing-1.0/WEB-INF/classes/com/epam/testing/system/logic/changers/AnswerChanger.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testing/target/testing-1.0/WEB-INF/classes/com/epam/testing/system/logic/changers/TestChanger.class" beforeDir="false" afterPath="$PROJECT_DIR$/testing/target/testing-1.0/WEB-INF/classes/com/epam/testing/system/logic/changers/TestChanger.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testing/target/testing-1.0/WEB-INF/classes/data_base.properties" beforeDir="false" afterPath="$PROJECT_DIR$/testing/target/testing-1.0/WEB-INF/classes/data_base.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testing/target/testing-1.0/front/pages/additionals/signIn.html" beforeDir="false" afterPath="$PROJECT_DIR$/testing/target/testing-1.0/front/pages/additionals/signIn.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testing/target/testing-1.0/front/pages/additionals/signUp.html" beforeDir="false" afterPath="$PROJECT_DIR$/testing/target/testing-1.0/front/pages/additionals/signUp.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testing/target/testing-1.0/front/pages/authorization.html" beforeDir="false" afterPath="$PROJECT_DIR$/testing/target/testing-1.0/front/pages/authorization.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testing/target/testing-1.0/front/pages/testing.html" beforeDir="false" afterPath="$PROJECT_DIR$/testing/target/testing-1.0/front/pages/testing.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testing/target/testing-1.0/front/scripts/authorizator.js" beforeDir="false" afterPath="$PROJECT_DIR$/testing/target/testing-1.0/front/scripts/authorizator.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testing/target/testing-1.0/front/scripts/main_page.js" beforeDir="false" afterPath="$PROJECT_DIR$/testing/target/testing-1.0/front/scripts/main_page.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testing/target/testing-1.0/front/scripts/validator.js" beforeDir="false" afterPath="$PROJECT_DIR$/testing/target/testing-1.0/front/scripts/validator.js" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1XABA5gLStCJGWyF5GbhRSDbur6" />
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="51edcfd9-e6aa-4205-9483-0534c1c74925" name="Default Changelist" comment="" />
+      <created>1580478894913</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1580478894913</updated>
+      <workItem from="1580478927183" duration="45000" />
+    </task>
+    <servers />
+  </component>
+</project>

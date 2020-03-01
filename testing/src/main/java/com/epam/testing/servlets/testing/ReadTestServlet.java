@@ -11,6 +11,9 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+/**
+ * receives requests for getting tests
+ */
 @WebServlet("/test")
 public class ReadTestServlet extends AjaxServlet {
     Testing testing;

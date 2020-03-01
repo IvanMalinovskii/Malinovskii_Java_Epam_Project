@@ -12,6 +12,9 @@ import org.json.simple.JSONObject;
 
 import java.util.List;
 
+/**
+ * describes logic for working with test daos
+ */
 public class Testing {
     private static final Logger LOGGER = LogManager.getLogger(Testing.class);
     private TestDao testDao;

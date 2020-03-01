@@ -4,6 +4,9 @@ import com.epam.testing.system.entities.Answer;
 
 import java.util.List;
 
+/**
+ * describes answer dao
+ */
 public interface AnswerDao {
     List<Answer> getAnswers(int questionId);
     boolean updateAnswer(Answer answer);

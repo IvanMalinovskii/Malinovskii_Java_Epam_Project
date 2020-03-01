@@ -15,6 +15,9 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+/**
+ * receives requests for changing test
+ */
 @WebServlet("/change")
 public class ChangeTestServlet extends AjaxServlet {
     private Testing testing;

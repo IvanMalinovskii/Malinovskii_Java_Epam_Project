@@ -7,6 +7,9 @@ import com.epam.testing.system.entities.Test;
 import com.epam.testing.system.entities.User;
 import org.json.simple.JSONObject;
 
+/**
+ * describes a test changer
+ */
 public class TestChanger extends Changer {
     private TestDao testDao;
     private SubjectDao subjectDao;

@@ -1,5 +1,8 @@
 package com.epam.testing.system.dao.factories;
 
+/**
+ * gets factories by the source
+ */
 public class StaticFactory {
     public static DaoFactory getFactory(Source source) throws Exception {
         switch (source) {

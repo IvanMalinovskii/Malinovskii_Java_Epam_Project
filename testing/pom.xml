@@ -9,6 +9,15 @@
     <version>1.0</version>
     <packaging>war</packaging>
 
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.1</version>
+            </plugin>
+        </plugins>
+    </build>
+
     <properties>
         <maven.compiler.target>13</maven.compiler.target>
         <maven.compiler.source>13</maven.compiler.source>
@@ -19,7 +28,7 @@
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
-            <version>3.1.0</version>
+            <version>3.0.1</version>
             <scope>provided</scope>
         </dependency>
         <dependency>

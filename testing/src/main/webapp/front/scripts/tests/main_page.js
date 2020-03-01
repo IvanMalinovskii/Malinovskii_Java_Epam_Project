@@ -16,11 +16,10 @@ function signUp() {
 		let email = document.getElementById('email').value;
 		let password = document.getElementById('password').value;
 		let name = document.getElementById('name').value;
-		let secondName = document.getElementById('second_name').value;
 		let surname = document.getElementById('surname').value;
 
-		let authorizator = new Authorizator(login, email, password, name, 
-											secondName, seurname, 'http://localhost:8080/testing-1.0/authorization');
+		let authorizator = new Authorizator(login, email, password, 'student', 
+											name, surname, 'http://localhost:8080/testing-1.0/authorization');
 		authorizator.doRequest('signUp').then(
 			result => {
 				if (result.status == 'success') {
@@ -55,11 +54,11 @@ function signIn() {
 function chooseAction() {
 	let action = document.getElementById('choosing_field').innerText;
 	if (action == 'signIn') {
-		loadPage('signIn.html');
+		loadPage('additionals/signIn.html');
 		document.getElementById('choosing_field').innerText = 'signUp';
 	}
 	else if (action == 'signUp') {
-		loadPage('signUp.html');
+		loadPage('additionals/signUp.html');
 		document.getElementById('choosing_field').innerText = 'signIn';
 	}
 }
@@ -82,11 +81,6 @@ function isValid(registration) {
 		document.getElementById('name_status').innerText = '';
 		if (!validator.validate(document.getElementById('name').value, 'name')) {
 			document.getElementById('name_status').innerText = 'name is not valid';
-			validationStatus = false;
-		}
-		document.getElementById('second_name_status').innerText = '';
-		if (!validator.validate(document.getElementById('second_name').value, 'name')) {
-			document.getElementById('second_name_status').innerText = 'second name is not valid';
 			validationStatus = false;
 		}
 		document.getElementById('surname_status').innerText = '';

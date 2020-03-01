@@ -12,6 +12,9 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+/**
+ * received requests for authorization
+ */
 @WebServlet("/authorization")
 public class AuthorizationServlet extends AjaxServlet {
     Authorization authorization;

@@ -29,7 +29,7 @@ class Authorizator {
 		let jsonObject = {
 			action: action,
 			login: this._login,
-			email: this._email,
+			mail: this._email,
 			password: this._password,
 			role: this._role,
 			name: this._name,

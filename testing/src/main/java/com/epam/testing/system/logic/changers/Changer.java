@@ -8,6 +8,9 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.json.simple.JSONObject;
 
+/**
+ * describes methods for changing data base entities
+ */
 public abstract class Changer {
     protected static final Logger LOGGER = LogManager.getLogger(Testing.class);
     protected DaoFactory factory;

@@ -12,6 +12,9 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+/**
+ * describes jdbc role dao
+ */
 public class JdbcRoleDao implements RoleDao {
     private ConnectionManager connectionManager;
     private PropertyManager propertyManager;

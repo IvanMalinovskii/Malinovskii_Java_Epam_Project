@@ -12,6 +12,9 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+/**
+ * describes jdbc subject dao
+ */
 public class JdbcSubjectDao implements SubjectDao {
     private ConnectionManager connectionManager;
     private PropertyManager propertyManager;

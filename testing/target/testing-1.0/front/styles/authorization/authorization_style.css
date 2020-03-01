@@ -1,0 +1,37 @@
+body {
+	background-color: #e6ecff;
+
+}
+
+.central_div {
+	margin: auto;
+	padding: 10px;
+	width: 300px;
+	background-color: #809fff;
+}
+
+input[type=password], input[type=text] {
+	width: 100%;
+	padding: 10px 10px;
+	font: 15px Calibri;
+	margin: 5px 0;
+	box-sizing: border-box;
+}
+
+input[type=button] {
+ 	font: 15px Calibri;
+  	width: 100%;
+  	background-color: #80d4ff;
+  	color: white;
+  	padding: 10px 10px;
+  	margin: 8px 0;
+  	border: none;
+  	cursor: pointer;
+}
+
+p {
+	padding: 0px;
+	margin: 0px; 
+	text-align: center;
+	color: white;
+}
